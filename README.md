@@ -46,7 +46,7 @@
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Server][#server]
+2. [Server](#server)
 3. [Features](#features)
 4. [Installation](#installation)
 5. [Usage](#usage)
