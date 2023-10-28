@@ -1,22 +1,24 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:resumify/routes/resume_data.dart';
 import 'package:resumify/routes/widgets/history_list.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:resumify/routes/widgets/selected_files.dart';
 
 class Home extends StatefulWidget {
-  bool fileChoosed = false;
-  var file;
-
-  Home({super.key});
+  const Home({super.key});
 
   @override
   State<Home> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
+  final fileChoosed = false;
+  final selectedFiles = [];
+
+  get isFileChoosed => selectedFiles.isNotEmpty;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,8 +32,7 @@ class _HomeState extends State<Home> {
           Center(
             child: Text(
               "History",
-              style:
-                  GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold),
+              style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold),
             ),
           ),
           Center(
@@ -64,8 +65,7 @@ class _HomeState extends State<Home> {
             Center(
               child: Text(
                 "Upload Your Files",
-                style: GoogleFonts.roboto(
-                    fontSize: 20, fontWeight: FontWeight.w800),
+                style: GoogleFonts.roboto(fontSize: 20, fontWeight: FontWeight.w800),
               ),
             ),
             const SizedBox(height: 20),
@@ -85,9 +85,7 @@ class _HomeState extends State<Home> {
                       Image.asset("assets/images/folder.png"),
                       Text(
                         "Choose your files here",
-                        style: GoogleFonts.inter(
-                            fontSize: 14,
-                            color: const Color.fromRGBO(179, 181, 182, 1)),
+                        style: GoogleFonts.inter(fontSize: 14, color: const Color.fromRGBO(179, 181, 182, 1)),
                       )
                     ],
                   ),
@@ -98,21 +96,15 @@ class _HomeState extends State<Home> {
                   type: FileType.custom,
                   allowedExtensions: ["pdf"],
                 );
-                if (result != null) {
-                  widget.file = result.files.first;
-                  // Client(widget.file.path);
-                  setState(() {
-                    widget.fileChoosed = true;
-                  });
-                } else {
-                  setState(() {
-                    widget.fileChoosed = false;
-                  });
+
+                if ((result?.count ?? 0) > 0) {
+                  selectedFiles.addAll(result!.paths);
+                  setState(() {});
                 }
               },
             ),
             const SizedBox(height: 20),
-            if (widget.fileChoosed)
+            if (fileChoosed)
               SizedBox(
                 height: MediaQuery.of(context).size.height / 2.6,
                 child: ListView(
@@ -163,20 +155,19 @@ class _HomeState extends State<Home> {
                         alignment: Alignment.center,
                         child: Text(
                           "Upload",
-                          style: GoogleFonts.inter(
-                              fontSize: 13, color: Colors.white),
+                          style: GoogleFonts.inter(fontSize: 13, color: Colors.white),
                         ),
                       ),
                     ),
                     onTap: () {
-                      widget.fileChoosed
-                          ? Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const ResumeData(),
-                              ),
-                            )
-                          : null;
+                      if (fileChoosed) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ResumeData(),
+                          ),
+                        );
+                      }
                     },
                   ),
                 ),
