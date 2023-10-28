@@ -27,11 +27,6 @@
       height="300"
     />
           <img
-      src="./assets/images/78shots_so.webp"
-      alt="Full Images"
-      height="300"
-    />
-          <img
       src="./assets/images/839shots_so.webp"
       alt="Full Images"
       height="300"
