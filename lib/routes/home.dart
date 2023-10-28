@@ -14,7 +14,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final fileChoosed = false;
   final selectedFiles = [];
 
   get isFileChoosed => selectedFiles.isNotEmpty;
@@ -107,7 +106,7 @@ class _HomeState extends State<Home> {
               },
             ),
             const SizedBox(height: 20),
-            if (fileChoosed)
+            if (isFileChoosed)
               SizedBox(
                 height: MediaQuery.of(context).size.height / 2.7,
                 child: ListView(
@@ -144,7 +143,7 @@ class _HomeState extends State<Home> {
                     ),
                     onTap: () {
                       setState(() {
-                        if (fileChoosed) {
+                        if (isFileChoosed) {
                           selectedFiles.clear();
                         }
                       });
@@ -169,7 +168,7 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     onTap: () {
-                      if (fileChoosed) {
+                      if (isFileChoosed) {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
