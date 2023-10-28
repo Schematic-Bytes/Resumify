@@ -61,7 +61,7 @@ Welcome to the Resume Parsing Tool, a powerful application designed to automatic
 
 ## 2. Server <a name="server"></a>
 
-This app relies a backend server which is written in python
+This app relies on a backend server which is written in python.
 https://github.com/Schematic-Bytes/Resumify-Server
 
 
