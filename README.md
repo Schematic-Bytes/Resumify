@@ -15,11 +15,6 @@
   <b>
     Your resume parsing tool
   </b>
-      <img
-      src="./assets/images/Frame 2087324655.webp"
-      alt="Full Images"
-      height="600"
-    />
         <img
       src="./assets/images/301shots_so.webp"
       alt="Full Images"
