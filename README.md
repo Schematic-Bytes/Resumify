@@ -23,12 +23,12 @@
     />
   <br>
           <img
-      src="./assets/images/767shots_so.webp"
+      src="./assets/images/839shots_so.webp"
       alt="Full Images"
       height="300"
     />
-          <img
-      src="./assets/images/839shots_so.webp"
+            <img
+      src="./assets/images/767shots_so.webp"
       alt="Full Images"
       height="300"
     />
