@@ -15,7 +15,7 @@
   <b>
     Your resume parsing tool
   </b>
-
+</div>
 # Resume Parsing Tool
 
 ## Table of Contents
