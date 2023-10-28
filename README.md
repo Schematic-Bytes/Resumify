@@ -15,6 +15,7 @@
   <b>
     Your resume parsing tool
   </b>
+<br>
         <img
       src="./assets/images/301shots_so.webp"
       alt="Full Images"
