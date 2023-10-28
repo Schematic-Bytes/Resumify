@@ -1,6 +1,5 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
+import 'package:http_parser/http_parser.dart';
 import 'package:logging/logging.dart';
 import 'package:resumify/config.dart';
 
@@ -19,12 +18,11 @@ class Client {
     logger.info("requesting with file :- $file");
 
     final formData = FormData();
-    formData.files.add(MapEntry(file, await MultipartFile.fromFile(file)));
+    formData.files.add(MapEntry("file", await MultipartFile.fromFile(file)));
 
     final response = await _dio.post("/parse/single/", data: formData);
     if (response.statusCode == 200) {
-      final data = json.decode(response.data);
-      return data;
+      return response.data;
     }
 
     logger.warning("server != 200 message: ${response.data}");
@@ -37,14 +35,21 @@ class Client {
     final formData = FormData();
 
     for (final file in files) {
-      formData.files.add(MapEntry(file, await MultipartFile.fromFile(file)));
+      formData.files.add(
+        MapEntry(
+          "files",
+          await MultipartFile.fromFile(
+            file,
+            contentType: MediaType.parse("application/pdf"),
+          ),
+        ),
+      );
     }
 
     final response = await _dio.post("/parse/multi/", data: formData);
 
-    if (response.statusCode == 200) {
-      final data = json.decode(response.data);
-      return data['data']['id'];
+    if (response.statusCode == 202) {
+      return response.data['data']['id'];
     }
 
     logger.warning("server != 200 message: ${response.data}");
@@ -52,28 +57,32 @@ class Client {
   }
 
   Future<Map<String, dynamic>?> getJobStatus(String jobId) async {
-    final response = await _dio.get("/parse/query/$jobId");
+    final response = await _dio.get("/parse/query/$jobId/");
     if (response.statusCode == 200) {
-      final data = json.decode(response.data);
-      return data['data']['id'];
+      print(response.data);
+      return response.data['data']['id'];
     }
 
     logger.warning("server != 200 message: ${response.data}");
     return null;
   }
 
-  Stream<Map<String, dynamic>> getJobStatusStream(String jobId) async* {
-    for (int tries = 0; tries < 10; tries++) {
-      logger.info("Fetching job with id --> $jobId | tries --> $tries");
-      final response = await getJobStatus(jobId);
+  Stream<Map<String, dynamic>> getJobStatusStream(String? jobId) async* {
+    for (int tries = 0; tries <= 15; tries++) {
+      print(" out $jobId $tries");
+      if (jobId != null) {
+        logger.info("Fetching job with id --> $jobId | tries --> $tries");
+        final response = await getJobStatus(jobId);
 
-      if (response != null) {
-        logger.info("Fetching job with id --> $jobId | data found");
-        yield response;
+        if (response != null) {
+          logger.info("Fetching job with id --> $jobId | data found");
+          yield response;
+        }
+
+        logger.info("Fetching job with id --> $jobId | not ready/doesn't exist");
       }
-
-      logger.info("Fetching job with id --> $jobId | not ready/doesn't exist");
-      await Future.delayed(const Duration(seconds: 3));
+      await Future.delayed(const Duration(seconds: 10));
+      print(jobId);
     }
     throw Exception("Failed to get job status tries out");
   }
