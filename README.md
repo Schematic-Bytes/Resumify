@@ -19,8 +19,9 @@
         <img
       src="./assets/images/301shots_so.webp"
       alt="Full Images"
-      height="300"
+      height="600"
     />
+  <br>
           <img
       src="./assets/images/714shots_so.webp"
       alt="Full Images"
@@ -28,11 +29,6 @@
     />
           <img
       src="./assets/images/839shots_so.webp"
-      alt="Full Images"
-      height="300"
-    />
-            <img
-      src="./assets/images/649shots_so.webp
       alt="Full Images"
       height="300"
     />
