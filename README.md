@@ -12,6 +12,26 @@
   <b>
     Your resume parsing tool
   </b>
+ <img
+      src="./assets/images/Frame 2087324655.webp"
+      alt="Resumify"
+      height="600"
+    />
+     <img
+      src="./assets/images/logo.png"
+      alt="Resumify"
+      height="64"
+    />
+     <img
+      src="./assets/images/logo.png"
+      alt="Resumify"
+      height="64"
+    />
+     <img
+      src="./assets/images/logo.png"
+      alt="Resumify"
+      height="64"
+    />
 </div>
 
 # Resume Parsing Tool
