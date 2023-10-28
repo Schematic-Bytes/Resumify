@@ -62,7 +62,7 @@ class Client {
     return null;
   }
 
-  Stream<Map<String, dynamic>?> getJobStatusStream(String jobId) async* {
+  Stream<Map<String, dynamic>> getJobStatusStream(String jobId) async* {
     for (int tries = 0; tries < 10; tries++) {
       logger.info("Fetching job with id --> $jobId | tries --> $tries");
       final response = await getJobStatus(jobId);
@@ -75,5 +75,6 @@ class Client {
       logger.info("Fetching job with id --> $jobId | not ready/doesn't exist");
       await Future.delayed(const Duration(seconds: 3));
     }
+    throw Exception("Failed to get job status tries out");
   }
 }
