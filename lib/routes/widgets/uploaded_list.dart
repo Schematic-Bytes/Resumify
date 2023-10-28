@@ -4,7 +4,8 @@ import 'package:resumify/routes/Resume_data.dart';
 
 class Uploadedlist extends StatelessWidget {
   final String filename;
-  const Uploadedlist({super.key, required this.filename});
+  final String status;
+  const Uploadedlist({super.key, required this.status, required this.filename});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +43,7 @@ class Uploadedlist extends StatelessWidget {
                         style: GoogleFonts.inter(fontSize: 13, fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        "(Completed)",
+                        "($status)",
                         style: GoogleFonts.roboto(fontSize: 13),
                       ),
                     ],
