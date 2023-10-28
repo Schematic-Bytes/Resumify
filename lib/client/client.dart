@@ -23,8 +23,3 @@ class Client with ChangeNotifier {
     notifyListeners();
   } // print(response);
 }
-
-// void main() {
-//   Client data = Client(null);
-//   data.getHttp();
-// }
