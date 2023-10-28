@@ -1,25 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:resumify/client/client.dart';
 import 'package:resumify/routes/home.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ResumifyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class ResumifyApp extends StatelessWidget {
+  const ResumifyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Resumify',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return Provider<Client>.value(
+      value: Client(),
+      child: MaterialApp(
+        title: 'Resumify',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home: ChangeNotifierProvider(create: (context) {}, child: Home()),
       ),
-      home: ChangeNotifierProvider(create: (context) {}, child: Home()),
     );
   }
 }

@@ -3,7 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:resumify/routes/Resume_data.dart';
 
 class Uploadedlist extends StatelessWidget {
-  const Uploadedlist({super.key});
+  final String filename;
+  const Uploadedlist({super.key, required this.filename});
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +22,7 @@ class Uploadedlist extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           margin: const EdgeInsets.all(10),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10), color: Colors.white),
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: Colors.white),
           child: Padding(
             padding: const EdgeInsets.all(5),
             child: Row(
@@ -38,9 +38,8 @@ class Uploadedlist extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "filename.pdf",
-                        style: GoogleFonts.inter(
-                            fontSize: 13, fontWeight: FontWeight.bold),
+                        filename,
+                        style: GoogleFonts.inter(fontSize: 13, fontWeight: FontWeight.bold),
                       ),
                       Text(
                         "(Completed)",
@@ -50,7 +49,6 @@ class Uploadedlist extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                IconButton(onPressed: () {}, icon: const Icon(Icons.delete))
               ],
             ),
           ),

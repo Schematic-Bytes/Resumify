@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:resumify/routes/widgets/uploaded_list.dart';
 
-class UploadedFiles extends StatelessWidget {
-  const UploadedFiles({super.key});
+class UploadedFiles extends StatefulWidget {
+  final List<String> pathList;
+  const UploadedFiles({super.key, required this.pathList});
 
+  @override
+  State<UploadedFiles> createState() => _UploadedFilesState();
+}
+
+class _UploadedFilesState extends State<UploadedFiles> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,8 +22,7 @@ class UploadedFiles extends StatelessWidget {
             Center(
               child: Text(
                 "Parsed Files",
-                style: GoogleFonts.inter(
-                    fontSize: 20, fontWeight: FontWeight.bold),
+                style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),
             const Center(
@@ -25,7 +30,9 @@ class UploadedFiles extends StatelessWidget {
             ),
             const Column(
               children: [
-                Uploadedlist(),
+                Uploadedlist(
+                  filename: "Asasa",
+                ),
               ],
             )
           ],

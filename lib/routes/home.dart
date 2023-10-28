@@ -4,7 +4,7 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:resumify/routes/resume_data.dart';
+import 'package:resumify/routes/uploaded_files.dart';
 import 'package:resumify/routes/widgets/history_list.dart';
 import 'package:resumify/routes/widgets/selected_files.dart';
 
@@ -16,7 +16,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final selectedFiles = [];
+  final List<String> selectedFiles = [];
 
   get isFileChoosed => selectedFiles.isNotEmpty;
 
@@ -102,7 +102,7 @@ class _HomeState extends State<Home> {
                 );
 
                 if ((result?.count ?? 0) > 0) {
-                  selectedFiles.addAll(result!.paths);
+                  selectedFiles.addAll(result!.paths.whereType<String>());
                   setState(() {});
                 }
               },
@@ -165,11 +165,11 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     onTap: () {
-                      if (isFileChoosed) {
+                      if (true) {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const ResumeData(),
+                            builder: (context) => UploadedFiles(pathList: selectedFiles),
                           ),
                         );
                       }
