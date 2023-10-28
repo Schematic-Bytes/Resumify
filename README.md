@@ -23,7 +23,7 @@
     />
   <br>
           <img
-      src="./assets/images/714shots_so.webp"
+      src="./assets/images/767shots_so.webp"
       alt="Full Images"
       height="300"
     />
