@@ -21,11 +21,30 @@
       height="600"
     />
         <img
-      src=".assets/images/301shots_so.webp"
+      src="./assets/images/301shots_so.webp"
       alt="Full Images"
-      height="600"
+      height="300"
     />
-  
+          <img
+      src="./assets/images/714shots_so.webp"
+      alt="Full Images"
+      height="300"
+    />
+          <img
+      src="./assets/images/78shots_so.webp"
+      alt="Full Images"
+      height="300"
+    />
+          <img
+      src="./assets/images/839shots_so.webp"
+      alt="Full Images"
+      height="300"
+    />
+            <img
+      src="./assets/images/649shots_so.webp
+      alt="Full Images"
+      height="300"
+    />
 </div>
 
 ## Table of Contents
