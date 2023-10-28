@@ -19,7 +19,7 @@
         <img
       src="./assets/images/301shots_so.webp"
       alt="Full Images"
-      height="600"
+      height="608"
     />
   <br>
           <img
