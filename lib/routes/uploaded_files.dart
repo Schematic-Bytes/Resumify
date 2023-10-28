@@ -16,6 +16,7 @@ class _UploadedFilesState extends State<UploadedFiles> {
     return Scaffold(
       appBar: AppBar(),
       body: Container(
+        padding: const EdgeInsets.symmetric(vertical: 15),
         margin: const EdgeInsets.all(15),
         child: Column(
           children: [
