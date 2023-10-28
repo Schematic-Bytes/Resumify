@@ -1,3 +1,19 @@
+<div align="center">
+    <img
+      src="./assets/images/logo.png"
+      alt="Resumify"
+      height="64"
+    />
+  <h3>
+    <b>
+      Resumify
+    </b>
+  </h3>
+  <b>
+    Your resume parsing tool
+  </b>
+</div>
+
 # Resume Parsing Tool
 
 ## Table of Contents
