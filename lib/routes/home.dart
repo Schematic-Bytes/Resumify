@@ -3,7 +3,6 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:resumify/routes/resume_data.dart';
-import 'package:resumify/routes/uploaded_files.dart';
 import 'package:resumify/routes/widgets/history_list.dart';
 import 'package:resumify/routes/widgets/selected_files.dart';
 
@@ -64,8 +63,7 @@ class _HomeState extends State<Home> {
             Center(
               child: Text(
                 "Upload Your Files",
-                style: GoogleFonts.inter(
-                    fontSize: 20, fontWeight: FontWeight.w800),
+                style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.w800),
               ),
             ),
             Center(
@@ -146,7 +144,9 @@ class _HomeState extends State<Home> {
                     ),
                     onTap: () {
                       setState(() {
-                        widget.fileChoosed = false;
+                        if (fileChoosed) {
+                          selectedFiles.clear();
+                        }
                       });
                     },
                   ),
