@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:dotted_border/dotted_border.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -23,39 +22,41 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(surfaceTintColor: Colors.transparent),
       drawer: Drawer(
+          backgroundColor: Colors.white,
           child: ListView(
-        children: [
-          const SizedBox(height: 40),
-          Center(
-            child: Text(
-              "History",
-              style:
-                  GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-          ),
-          Center(
-            child: Text(
-              "Tap any file to preview",
-              style: GoogleFonts.inter(fontSize: 12),
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height / 1.2,
-            child: ListView(
-              shrinkWrap: true,
-              children: const [
-                HistoryList(),
-                HistoryList(),
-                HistoryList(),
-                HistoryList(),
-                HistoryList(),
-              ],
-            ),
-          ),
-        ],
-      )),
+            children: [
+              const SizedBox(height: 40),
+              Center(
+                child: Text(
+                  "History",
+                  style: GoogleFonts.inter(
+                      fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+              ),
+              Center(
+                child: Text(
+                  "Tap any file to preview",
+                  style: GoogleFonts.inter(fontSize: 12),
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height / 1.2,
+                child: ListView(
+                  shrinkWrap: true,
+                  children: const [
+                    HistoryList(),
+                    HistoryList(),
+                    HistoryList(),
+                    HistoryList(),
+                    HistoryList(),
+                  ],
+                ),
+              ),
+            ],
+          )),
       body: Container(
         padding: const EdgeInsets.only(bottom: 20),
         margin: const EdgeInsets.symmetric(horizontal: 15),

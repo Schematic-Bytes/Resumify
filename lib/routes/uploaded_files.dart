@@ -21,6 +21,7 @@ class _UploadedFilesState extends State<UploadedFiles> {
   Widget build(BuildContext context) {
     final client = context.read<Client>();
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(),
       body: Container(
         padding: const EdgeInsets.symmetric(vertical: 15),
@@ -30,7 +31,8 @@ class _UploadedFilesState extends State<UploadedFiles> {
             Center(
               child: Text(
                 "Parsed Files",
-                style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold),
+                style: GoogleFonts.inter(
+                    fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),
             const Center(
@@ -59,7 +61,8 @@ class _UploadedFilesState extends State<UploadedFiles> {
                         status = "Parsing";
                       } else if (snapshot.hasError) {
                         status = "Parsing failed.";
-                      } else if (snapshot.connectionState == ConnectionState.done) {
+                      } else if (snapshot.connectionState ==
+                          ConnectionState.done) {
                         status = "Done";
                       }
                       return Column(
