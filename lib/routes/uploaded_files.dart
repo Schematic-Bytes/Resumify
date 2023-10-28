@@ -31,8 +31,7 @@ class _UploadedFilesState extends State<UploadedFiles> {
             Center(
               child: Text(
                 "Parsed Files",
-                style: GoogleFonts.inter(
-                    fontSize: 20, fontWeight: FontWeight.bold),
+                style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),
             const Center(
@@ -55,8 +54,8 @@ class _UploadedFilesState extends State<UploadedFiles> {
                   print("Setting job id ${ftrSnapshot.data!}");
                   print(ftrSnapshot.data);
                   jobId = ftrSnapshot.data!;
-                  return StreamBuilder<Map<String, dynamic>?>(
-                      stream: client.getJobStatusStream(jobId),
+                  return FutureBuilder<Map<String, dynamic>?>(
+                      future: client.getJobStatusStream(jobId),
                       builder: (context, snapshot) {
                         print(widget.pathList);
 
@@ -69,11 +68,14 @@ class _UploadedFilesState extends State<UploadedFiles> {
                           status = "Done";
                         }
 
+                        final data = snapshot.data;
+
                         return Column(
                           children: widget.pathList
                               .map(
                                 (filePath) => Uploadedlist(
                                   filename: File(filePath).uri.pathSegments.last,
+                                  data: data?.[File(filePath).uri.pathSegments.last] as Map<String, dynamic>,
                                   status: status!,
                                 ),
                               )

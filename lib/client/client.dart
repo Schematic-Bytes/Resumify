@@ -10,7 +10,7 @@ class Client {
 
   Client() {
     _dio = Dio(
-      BaseOptions(baseUrl: SERVER_URL),
+      BaseOptions(baseUrl: SERVER_URL, validateStatus: (x) => true),
     );
   }
 
@@ -57,17 +57,19 @@ class Client {
   }
 
   Future<Map<String, dynamic>?> getJobStatus(String jobId) async {
-    final response = await _dio.get("/parse/query/$jobId/");
+    final response = await _dio.get(
+      "/parse/query/$jobId/",
+    );
     if (response.statusCode == 200) {
       print(response.data);
-      return response.data['data']['id'];
+      return response.data;
     }
 
     logger.warning("server != 200 message: ${response.data}");
     return null;
   }
 
-  Stream<Map<String, dynamic>> getJobStatusStream(String? jobId) async* {
+  Future<Map<String, dynamic>> getJobStatusStream(String? jobId) async {
     for (int tries = 0; tries <= 15; tries++) {
       print(" out $jobId $tries");
       if (jobId != null) {
@@ -76,12 +78,12 @@ class Client {
 
         if (response != null) {
           logger.info("Fetching job with id --> $jobId | data found");
-          yield response;
+          return response;
         }
 
         logger.info("Fetching job with id --> $jobId | not ready/doesn't exist");
       }
-      await Future.delayed(const Duration(seconds: 10));
+      await Future.delayed(const Duration(seconds: 5));
       print(jobId);
     }
     throw Exception("Failed to get job status tries out");

@@ -5,7 +5,8 @@ import 'package:resumify/routes/Resume_data.dart';
 class Uploadedlist extends StatelessWidget {
   final String filename;
   final String status;
-  const Uploadedlist({super.key, required this.status, required this.filename});
+  final Map<String, dynamic>? data;
+  const Uploadedlist({super.key, required this.status, required this.filename, required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +14,8 @@ class Uploadedlist extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         margin: const EdgeInsets.all(10),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: const Color.fromRGBO(246, 246, 246, 1)),
+        decoration:
+            BoxDecoration(borderRadius: BorderRadius.circular(10), color: const Color.fromRGBO(246, 246, 246, 1)),
         child: Padding(
           padding: const EdgeInsets.all(5),
           child: Row(
@@ -32,8 +32,7 @@ class Uploadedlist extends StatelessWidget {
                   children: [
                     Text(
                       filename,
-                      style: GoogleFonts.inter(
-                          fontSize: 13, fontWeight: FontWeight.bold),
+                      style: GoogleFonts.inter(fontSize: 13, fontWeight: FontWeight.bold),
                     ),
                     Text(
                       "($status)",
