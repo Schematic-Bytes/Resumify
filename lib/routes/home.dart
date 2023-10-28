@@ -3,6 +3,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:resumify/routes/resume_data.dart';
+import 'package:resumify/routes/uploaded_files.dart';
 import 'package:resumify/routes/widgets/history_list.dart';
 import 'package:resumify/routes/widgets/selected_files.dart';
 
@@ -22,9 +23,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: const [],
-      ),
+      appBar: AppBar(surfaceTintColor: Colors.transparent),
       drawer: Drawer(
           child: ListView(
         children: [
@@ -65,9 +64,15 @@ class _HomeState extends State<Home> {
             Center(
               child: Text(
                 "Upload Your Files",
-                style: GoogleFonts.roboto(fontSize: 20, fontWeight: FontWeight.w800),
+                style: GoogleFonts.inter(
+                    fontSize: 20, fontWeight: FontWeight.w800),
               ),
             ),
+            Center(
+                child: Text(
+              "Files should be PDF",
+              style: GoogleFonts.inter(fontSize: 12),
+            )),
             const SizedBox(height: 20),
             GestureDetector(
               child: DottedBorder(
@@ -106,7 +111,7 @@ class _HomeState extends State<Home> {
             const SizedBox(height: 20),
             if (fileChoosed)
               SizedBox(
-                height: MediaQuery.of(context).size.height / 2.6,
+                height: MediaQuery.of(context).size.height / 2.7,
                 child: ListView(
                   shrinkWrap: true,
                   children: const [
@@ -139,7 +144,11 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      setState(() {
+                        widget.fileChoosed = false;
+                      });
+                    },
                   ),
                 ),
                 const SizedBox(width: 10),

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:resumify/routes/Resume_data.dart';
 
-class SelectedFiles extends StatelessWidget {
-  const SelectedFiles({super.key});
+class Uploadedlist extends StatelessWidget {
+  const Uploadedlist({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class SelectedFiles extends StatelessWidget {
                             fontSize: 13, fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        "(Uploaded)",
+                        "(Completed)",
                         style: GoogleFonts.roboto(fontSize: 13),
                       ),
                     ],
