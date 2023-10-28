@@ -46,10 +46,11 @@
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Features](#features)
-3. [Installation](#installation)
-4. [Usage](#usage)
-5. [License](#license)
+2. [Server][#server]
+3. [Features](#features)
+4. [Installation](#installation)
+5. [Usage](#usage)
+6. [License](#license)
 
 ---
 
@@ -57,7 +58,14 @@
 
 Welcome to the Resume Parsing Tool, a powerful application designed to automatically extract and populate essential details from resumes or CVs. This documentation provides an overview of the tool, its features, installation instructions, and guidance on how to use it.
 
-## 2. Features <a name="features"></a>
+
+## 2. Server <a name="server"></a>
+
+This app relies a backend server which is written in python
+https://github.com/Schematic-Bytes/Resumify-Server
+
+
+## 3. Features <a name="features"></a>
 
 Our Resume/CV Parsing Tool offers the following key features:
 
@@ -75,7 +83,7 @@ Our Resume/CV Parsing Tool offers the following key features:
 
 - *High Accuracy:* Utilizes advanced parsing algorithms to ensure accurate data extraction.
 
-## 3. Installation <a name="installation"></a>
+## 4. Installation <a name="installation"></a>
 
 ### Prerequisites
 - Flutter
@@ -85,12 +93,13 @@ Our Resume/CV Parsing Tool offers the following key features:
 1. Clone this GitHub repository:
 
   ```bash
-https://github.com/yourusername/resume_parser.git
+https://github.com/Schematic-Bytes/Resumify
 ```
+
 
 2. Navigate to the project directory:
 
-   `cd resume_parser`
+   `cd Resumify`
    
 3. Locate the config.dart file in your project. This file contains important configurations, including the server URL.
 
@@ -98,10 +107,10 @@ https://github.com/yourusername/resume_parser.git
 
 5. Run the application:
    
-   `Flutter run`
+   `flutter run`
    
 
-## 4. Usage <a name="usage"></a>
+## 5. Usage <a name="usage"></a>
 
 1. Open the application as instructed in the installation steps.
 
