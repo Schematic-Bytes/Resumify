@@ -7,7 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:resumify/routes/widgets/selectedFiles.dart';
 
 class Home extends StatefulWidget {
-  bool? fileChoosed;
+  bool fileChoosed = false;
   var file;
 
   Home({super.key});
@@ -112,21 +112,21 @@ class _HomeState extends State<Home> {
               },
             ),
             const SizedBox(height: 20),
-            // widget.fileChoosed ?null:
-            // SizedBox(
-            //   height: MediaQuery.of(context).size.height / 2.6,
-            //   child: ListView(
-            //     shrinkWrap: true,
-            //     children: const [
-            //       SelectedFiles(),
-            //       SelectedFiles(),
-            //       SelectedFiles(),
-            //       SelectedFiles(),
-            //       SelectedFiles(),
-            //       SelectedFiles(),
-            //     ],
-            //   ),
-            // ),
+            if (widget.fileChoosed)
+              SizedBox(
+                height: MediaQuery.of(context).size.height / 2.6,
+                child: ListView(
+                  shrinkWrap: true,
+                  children: const [
+                    SelectedFiles(),
+                    SelectedFiles(),
+                    SelectedFiles(),
+                    SelectedFiles(),
+                    SelectedFiles(),
+                    SelectedFiles(),
+                  ],
+                ),
+              ),
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -169,7 +169,7 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     onTap: () {
-                      widget.fileChoosed!
+                      widget.fileChoosed
                           ? Navigator.push(
                               context,
                               MaterialPageRoute(

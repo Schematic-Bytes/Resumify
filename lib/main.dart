@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:resumify/client/client.dart';
 import 'package:resumify/routes/home.dart';
 
 void main() {
