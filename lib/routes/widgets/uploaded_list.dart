@@ -11,47 +11,39 @@ class Uploadedlist extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Container(
-        decoration: const BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey,
-              blurRadius: 10.0,
-              spreadRadius: -10,
-            )
-          ],
-        ),
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          margin: const EdgeInsets.all(10),
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: Colors.white),
-          child: Padding(
-            padding: const EdgeInsets.all(5),
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 50,
-                  height: 50,
-                  child: Image.asset("assets/images/pdf.png"),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        margin: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: const Color.fromRGBO(246, 246, 246, 1)),
+        child: Padding(
+          padding: const EdgeInsets.all(5),
+          child: Row(
+            children: [
+              SizedBox(
+                width: 50,
+                height: 50,
+                child: Image.asset("assets/images/pdf.png"),
+              ),
+              Container(
+                margin: const EdgeInsets.all(5),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      filename,
+                      style: GoogleFonts.inter(
+                          fontSize: 13, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "($status)",
+                      style: GoogleFonts.roboto(fontSize: 13),
+                    ),
+                  ],
                 ),
-                Container(
-                  margin: const EdgeInsets.all(5),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        filename,
-                        style: GoogleFonts.inter(fontSize: 13, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        "($status)",
-                        style: GoogleFonts.roboto(fontSize: 13),
-                      ),
-                    ],
-                  ),
-                ),
-                const Spacer(),
-              ],
-            ),
+              ),
+              const Spacer(),
+            ],
           ),
         ),
       ),

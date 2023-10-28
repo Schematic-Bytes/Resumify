@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:dotted_border/dotted_border.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -23,39 +22,43 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(surfaceTintColor: Colors.transparent),
       drawer: Drawer(
+          backgroundColor: Colors.white,
           child: ListView(
-        children: [
-          const SizedBox(height: 40),
-          Center(
-            child: Text(
-              "History",
-              style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-          ),
-          Center(
-            child: Text(
-              "Tap any file to preview",
-              style: GoogleFonts.inter(fontSize: 12),
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height / 1.2,
-            child: ListView(
-              shrinkWrap: true,
-              children: const [
-                HistoryList(),
-                HistoryList(),
-                HistoryList(),
-                HistoryList(),
-                HistoryList(),
-              ],
-            ),
-          ),
-        ],
-      )),
+            children: [
+              const SizedBox(height: 40),
+              Center(
+                child: Text(
+                  "History",
+                  style: GoogleFonts.inter(
+                      fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+              ),
+              Center(
+                child: Text(
+                  "Tap any file to preview",
+                  style: GoogleFonts.inter(fontSize: 12),
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height / 1.2,
+                child: ListView(
+                  shrinkWrap: true,
+                  children: const [
+                    HistoryList(),
+                    HistoryList(),
+                    HistoryList(),
+                    HistoryList(),
+                    HistoryList(),
+                  ],
+                ),
+              ),
+            ],
+          )),
       body: Container(
+        padding: const EdgeInsets.only(bottom: 20),
         margin: const EdgeInsets.symmetric(horizontal: 15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,7 +67,8 @@ class _HomeState extends State<Home> {
             Center(
               child: Text(
                 "Upload Your Files",
-                style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.w800),
+                style: GoogleFonts.inter(
+                    fontSize: 20, fontWeight: FontWeight.w800),
               ),
             ),
             Center(
@@ -89,7 +93,9 @@ class _HomeState extends State<Home> {
                       Image.asset("assets/images/folder.png"),
                       Text(
                         "Choose your files here",
-                        style: GoogleFonts.inter(fontSize: 14, color: const Color.fromRGBO(179, 181, 182, 1)),
+                        style: GoogleFonts.inter(
+                            fontSize: 14,
+                            color: const Color.fromRGBO(179, 181, 182, 1)),
                       )
                     ],
                   ),
@@ -109,12 +115,12 @@ class _HomeState extends State<Home> {
             ),
             const SizedBox(height: 20),
             if (isFileChoosed)
-              SizedBox(
-                height: MediaQuery.of(context).size.height / 2.7,
+              Flexible(
                 child: ListView(
                   shrinkWrap: true,
                   children: selectedFiles
-                      .map((filePath) => SelectedFiles(filename: File(filePath).uri.pathSegments.last))
+                      .map((filePath) => SelectedFiles(
+                          filename: File(filePath).uri.pathSegments.last))
                       .toList(growable: false),
                 ),
               ),
@@ -160,7 +166,8 @@ class _HomeState extends State<Home> {
                         alignment: Alignment.center,
                         child: Text(
                           "Upload",
-                          style: GoogleFonts.inter(fontSize: 13, color: Colors.white),
+                          style: GoogleFonts.inter(
+                              fontSize: 13, color: Colors.white),
                         ),
                       ),
                     ),
@@ -169,7 +176,8 @@ class _HomeState extends State<Home> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => UploadedFiles(pathList: selectedFiles),
+                            builder: (context) =>
+                                UploadedFiles(pathList: selectedFiles),
                           ),
                         );
                       }
