@@ -70,7 +70,7 @@ https://github.com/yourusername/resume_parser.git
 
 ## 6. License <a name="license"></a>
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [AGPL License](LICENSE).
 
 ---
 
