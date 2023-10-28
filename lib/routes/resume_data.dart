@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:timelines/timelines.dart';
-import 'package:resumify/routes/widgets/buildChip.dart';
+import 'package:resumify/routes/widgets/build_chip.dart';
 
 Map data = {
   "name": "Arun Babu",

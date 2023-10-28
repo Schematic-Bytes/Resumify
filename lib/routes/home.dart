@@ -1,10 +1,10 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:resumify/routes/resumeData.dart';
-import 'package:resumify/routes/widgets/historyList.dart';
+import 'package:resumify/routes/resume_data.dart';
+import 'package:resumify/routes/widgets/history_list.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:resumify/routes/widgets/selectedFiles.dart';
+import 'package:resumify/routes/widgets/selected_files.dart';
 
 class Home extends StatefulWidget {
   bool fileChoosed = false;
