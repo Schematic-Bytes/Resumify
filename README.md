@@ -127,4 +127,3 @@ This project is licensed under the [AGPL License](LICENSE).
 
 ---
 
-Thank you for using our Resume/CV Parsing Tool. If you encounter any issues or have suggestions for improvement, please don't hesitate to [report them](https://github.com/yourusername/resume-cv-parser/issues). We hope this tool enhances efficiency for job seekers by simplifying the application process. Happy parsing!
