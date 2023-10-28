@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dotted_border/dotted_border.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -111,14 +113,9 @@ class _HomeState extends State<Home> {
                 height: MediaQuery.of(context).size.height / 2.7,
                 child: ListView(
                   shrinkWrap: true,
-                  children: const [
-                    SelectedFiles(),
-                    SelectedFiles(),
-                    SelectedFiles(),
-                    SelectedFiles(),
-                    SelectedFiles(),
-                    SelectedFiles(),
-                  ],
+                  children: selectedFiles
+                      .map((filePath) => SelectedFiles(filename: File(filePath).uri.pathSegments.last))
+                      .toList(growable: false),
                 ),
               ),
             const SizedBox(height: 20),
