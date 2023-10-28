@@ -5,6 +5,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:resumify/routes/resume_data.dart';
+import 'package:resumify/routes/uploaded_files.dart';
 import 'package:resumify/routes/widgets/history_list.dart';
 import 'package:resumify/routes/widgets/selected_files.dart';
 
@@ -31,7 +32,8 @@ class _HomeState extends State<Home> {
           Center(
             child: Text(
               "History",
-              style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold),
+              style:
+                  GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold),
             ),
           ),
           Center(
@@ -64,7 +66,8 @@ class _HomeState extends State<Home> {
             Center(
               child: Text(
                 "Upload Your Files",
-                style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.w800),
+                style: GoogleFonts.inter(
+                    fontSize: 20, fontWeight: FontWeight.w800),
               ),
             ),
             Center(
@@ -89,7 +92,9 @@ class _HomeState extends State<Home> {
                       Image.asset("assets/images/folder.png"),
                       Text(
                         "Choose your files here",
-                        style: GoogleFonts.inter(fontSize: 14, color: const Color.fromRGBO(179, 181, 182, 1)),
+                        style: GoogleFonts.inter(
+                            fontSize: 14,
+                            color: const Color.fromRGBO(179, 181, 182, 1)),
                       )
                     ],
                   ),
@@ -114,7 +119,8 @@ class _HomeState extends State<Home> {
                 child: ListView(
                   shrinkWrap: true,
                   children: selectedFiles
-                      .map((filePath) => SelectedFiles(filename: File(filePath).uri.pathSegments.last))
+                      .map((filePath) => SelectedFiles(
+                          filename: File(filePath).uri.pathSegments.last))
                       .toList(growable: false),
                 ),
               ),
@@ -160,7 +166,8 @@ class _HomeState extends State<Home> {
                         alignment: Alignment.center,
                         child: Text(
                           "Upload",
-                          style: GoogleFonts.inter(fontSize: 13, color: Colors.white),
+                          style: GoogleFonts.inter(
+                              fontSize: 13, color: Colors.white),
                         ),
                       ),
                     ),
@@ -169,7 +176,7 @@ class _HomeState extends State<Home> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const ResumeData(),
+                            builder: (context) => const UploadedFiles(),
                           ),
                         );
                       }

@@ -22,7 +22,8 @@ class SelectedFiles extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           margin: const EdgeInsets.all(10),
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: Colors.white),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10), color: Colors.white),
           child: Padding(
             padding: const EdgeInsets.all(5),
             child: Row(
@@ -35,11 +36,17 @@ class SelectedFiles extends StatelessWidget {
                 Container(
                   margin: const EdgeInsets.all(5),
                   child: Column(
+                    mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        filename,
-                        style: GoogleFonts.inter(fontSize: 13, fontWeight: FontWeight.bold),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width / 2,
+                        child: Text(
+                          filename,
+                          style: GoogleFonts.inter(
+                              fontSize: 13, fontWeight: FontWeight.bold),
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
                       Text(
                         "(Uploaded)",
