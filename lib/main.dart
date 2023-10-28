@@ -22,7 +22,7 @@ class ResumifyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: ChangeNotifierProvider(create: (context) {}, child: Home()),
+        home: const Home(),
       ),
     );
   }

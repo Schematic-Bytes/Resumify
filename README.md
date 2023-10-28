@@ -1,4 +1,38 @@
-# Resume Parsing Tool
+
+<div align="center">
+  <a href="https://hoppscotch.io](https://github.com/Schematic-Bytes/Resumify/">
+    <img
+      src="./assets/images/logo.png"
+      alt="Resumify"
+      height="64"
+    />
+  </a>
+  <h3>
+    <b>
+      Resumify
+    </b>
+  </h3>
+  <b>
+    Your resume parsing tool
+  </b>
+<br>
+        <img
+      src="./assets/images/301shots_so.webp"
+      alt="Full Images"
+      height="600"
+    />
+  <br>
+          <img
+      src="./assets/images/714shots_so.webp"
+      alt="Full Images"
+      height="300"
+    />
+          <img
+      src="./assets/images/839shots_so.webp"
+      alt="Full Images"
+      height="300"
+    />
+</div>
 
 ## Table of Contents
 1. [Introduction](#introduction)

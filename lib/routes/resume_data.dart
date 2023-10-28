@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:timelines/timelines.dart';
 import 'package:resumify/routes/widgets/build_chip.dart';
+import 'package:timelines/timelines.dart';
 
 Map data = {
   "name": "Arun Babu",
@@ -16,8 +16,7 @@ Map data = {
   "graduation_year": 2024,
   "graduation_month": null,
   "majors": "Computer Science and Engineering (CSE)",
-  "university":
-      "Rajeev Gandhi Memorial College of Engineering and Technology, Nandayl",
+  "university": "Rajeev Gandhi Memorial College of Engineering and Technology, Nandayl",
   "project_experience": [
     {
       "project_description":
@@ -67,8 +66,7 @@ class ResumeData extends StatelessWidget {
             Center(
               child: Text(
                 "${data["name"]}",
-                style: GoogleFonts.inter(
-                    fontSize: 18, fontWeight: FontWeight.bold),
+                style: GoogleFonts.inter(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             ),
             Center(
@@ -76,22 +74,18 @@ class ResumeData extends StatelessWidget {
                 alignment: WrapAlignment.center,
                 children: [
                   buildChip("${data["email"]}", "gmail.svg"),
-                  buildChip("${data["sex"]}",
-                      (data["sex"] == "Male" ? "male.svg" : "female.svg")),
+                  buildChip("${data["sex"]}", (data["sex"] == "Male" ? "male.svg" : "female.svg")),
                   buildChip("${data["phone No"]}", "phone.svg"),
-                  buildChip(
-                      "${data["linkedin_url"].split("/").last}", "linked.svg"),
+                  buildChip("${data["linkedin_url"].split("/").last}", "linked.svg"),
                   buildChip("${data["location"]}", "location.svg"),
-                  buildChip("${data["github_main_page_url"].split("/").last}",
-                      "github.svg"),
+                  buildChip("${data["github_main_page_url"].split("/").last}", "github.svg"),
                 ],
               ),
             ),
             const SizedBox(height: 20),
             Text(
               "Education",
-              style:
-                  GoogleFonts.roboto(fontSize: 16, fontWeight: FontWeight.w800),
+              style: GoogleFonts.roboto(fontSize: 16, fontWeight: FontWeight.w800),
             ),
             const SizedBox(height: 10),
             TimelineTile(
@@ -102,8 +96,7 @@ class ResumeData extends StatelessWidget {
                   children: [
                     Text(
                       "${data["university"]}",
-                      style: GoogleFonts.inter(
-                          fontSize: 14, fontWeight: FontWeight.bold),
+                      style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.bold),
                       // overflow: TextOverflow.ellipsis,
                     ),
                     Text(
@@ -135,8 +128,7 @@ class ResumeData extends StatelessWidget {
                   children: [
                     Text(
                       "${data["university"]}",
-                      style: GoogleFonts.inter(
-                          fontSize: 14, fontWeight: FontWeight.bold),
+                      style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.bold),
                       // overflow: TextOverflow.ellipsis,
                     ),
                     Text(
@@ -164,8 +156,7 @@ class ResumeData extends StatelessWidget {
             const SizedBox(height: 20),
             Text(
               "Experience",
-              style:
-                  GoogleFonts.roboto(fontSize: 16, fontWeight: FontWeight.w800),
+              style: GoogleFonts.roboto(fontSize: 16, fontWeight: FontWeight.w800),
             ),
             const SizedBox(height: 10),
             TimelineTile(
@@ -176,8 +167,7 @@ class ResumeData extends StatelessWidget {
                   children: [
                     Text(
                       "${data["project_experience"][0]["project_name"]}",
-                      style: GoogleFonts.inter(
-                          fontSize: 14, fontWeight: FontWeight.bold),
+                      style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.bold),
                       // overflow: TextOverflow.ellipsis,
                     ),
                     Text(
@@ -201,8 +191,7 @@ class ResumeData extends StatelessWidget {
                   children: [
                     Text(
                       "${data["project_experience"][1]["project_name"]}",
-                      style: GoogleFonts.inter(
-                          fontSize: 14, fontWeight: FontWeight.bold),
+                      style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.bold),
                       // overflow: TextOverflow.ellipsis,
                     ),
                     Text(
